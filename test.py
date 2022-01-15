@@ -45,7 +45,7 @@ class ReviewClassifier(nn.Module):
 
 
 model = ReviewClassifier(len(word2id))
-model.load_state_dict(torch.load('final_model'))
+model.load_state_dict(torch.load(sys.argv[1]))
 
 model.eval()
-print(label_vocab[round(model(vectorize(sys.argv[1])).item())])
+print(label_vocab[round(model(vectorize(sys.argv[2])).item())])
